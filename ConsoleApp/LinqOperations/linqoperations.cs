@@ -145,9 +145,7 @@ namespace ConsoleApp.LinqOperations
 		{
 			decimal maxSalary = employees.Max(e => e.Salary);
 			string employeeWithMaxSalary = employees.Where(e => e.Salary == maxSalary).FirstOrDefault()?.Name;
-			Console.WriteLine(employeeWithMaxSalary);
-
-						  
+			Console.WriteLine(employeeWithMaxSalary);		  
 		}
 	}
 }
