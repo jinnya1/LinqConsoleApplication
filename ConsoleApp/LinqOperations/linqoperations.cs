@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp.LinqOperations
 {
-	 public class linqoperations
+	public class linqoperations
 	{
 		List<Employe> employees = new List<Employe>()
-        {
-	      new Employe() { Id = 1, Name = "John", Age = 25, Salary = 50000 },
-	      new Employe() { Id = 2, Name = "Jane", Age = 30, Salary = 60000 },
-	      new Employe() { Id = 3, Name = "Bob", Age = 35, Salary = 70000 },
-	      new Employe() { Id = 4, Name = "Alice", Age = 40, Salary = 80000 },
-	      new Employe() { Id = 5, Name = "Tom", Age = 45, Salary = 90000 }
-        };
+		{
+		  new Employe() { Id = 1, Name = "John", Age = 25, Salary = 50000 },
+		  new Employe() { Id = 2, Name = "Jane", Age = 30, Salary = 60000 },
+		  new Employe() { Id = 3, Name = "Bob", Age = 35, Salary = 70000 },
+		  new Employe() { Id = 4, Name = "Alice", Age = 40, Salary = 80000 },
+		  new Employe() { Id = 5, Name = "Tom", Age = 45, Salary = 90000 }
+		};
 
 		public void HighSalaryEmployees_Where()
 		{
@@ -78,7 +78,7 @@ namespace ConsoleApp.LinqOperations
 
 		public void SortedEmployees_ThenBy()
 		{
-			var sortedEmployees = employees.OrderBy(e=>e.Salary).ThenBy(e => e.Age);
+			var sortedEmployees = employees.OrderBy(e => e.Salary).ThenBy(e => e.Age);
 
 			foreach (var employee in sortedEmployees)
 			{
@@ -105,7 +105,7 @@ namespace ConsoleApp.LinqOperations
 
 			foreach (var ageGroup in groupedResult)
 			{
-				Console.WriteLine("Age Group: {0}", ageGroup.Key); 
+				Console.WriteLine("Age Group: {0}", ageGroup.Key);
 			}
 
 		}
@@ -116,7 +116,7 @@ namespace ConsoleApp.LinqOperations
 
 			foreach (var group in lookupResult)
 			{
-				Console.WriteLine("Age Group: {0}", group.Key);  
+				Console.WriteLine("Age Group: {0}", group.Key);
 			}
 		}
 
@@ -145,7 +145,7 @@ namespace ConsoleApp.LinqOperations
 		{
 			decimal maxSalary = employees.Max(e => e.Salary);
 			string employeeWithMaxSalary = employees.Where(e => e.Salary == maxSalary).FirstOrDefault()?.Name;
-			Console.WriteLine(employeeWithMaxSalary);		  
+			Console.WriteLine(employeeWithMaxSalary);
 		}
 	}
 }
