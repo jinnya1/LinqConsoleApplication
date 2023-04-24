@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -62,6 +63,91 @@ namespace ConsoleApp.LinqOperations
 
 			Console.WriteLine($"Average salary: {averageSalary}");
 
+		}
+
+		public void SortedEmployees_Orderbydescending()
+		{
+			var sortedEmployees = employees.OrderByDescending(e => e.Age);
+
+			foreach (var employee in sortedEmployees)
+			{
+				Console.WriteLine($"{employee.Name} - {employee.Age}");
+			}
+
+		}
+
+		public void SortedEmployees_ThenBy()
+		{
+			var sortedEmployees = employees.OrderBy(e=>e.Salary).ThenBy(e => e.Age);
+
+			foreach (var employee in sortedEmployees)
+			{
+				Console.WriteLine($"{employee.Name} - {employee.Age}");
+			}
+
+		}
+
+		public void SortedEmployees_ThenByDescending()
+		{
+			var sortedEmployees = employees.OrderBy(e => e.Salary).ThenByDescending(e => e.Age);
+
+			foreach (var employee in sortedEmployees)
+			{
+				Console.WriteLine($"{employee.Name} - {employee.Age}");
+			}
+
+		}
+
+		public void Groupby()
+		{
+			var groupedResult = from s in employees
+								group s by s.Age;
+
+			foreach (var ageGroup in groupedResult)
+			{
+				Console.WriteLine("Age Group: {0}", ageGroup.Key); 
+			}
+
+		}
+
+		public void ToLookup()
+		{
+			var lookupResult = employees.ToLookup(s => s.Age);
+
+			foreach (var group in lookupResult)
+			{
+				Console.WriteLine("Age Group: {0}", group.Key);  
+			}
+		}
+
+		public void All()
+		{
+			bool areAllemplyoeyounguster = employees.All(s => s.Age > 25 && s.Age < 45);
+
+			Console.WriteLine(areAllemplyoeyounguster);
+		}
+
+		public void Any()
+		{
+			bool areAnyemplyoeyounguster = employees.Any(s => s.Age > 25 && s.Age < 45);
+
+			Console.WriteLine(areAnyemplyoeyounguster);
+		}
+
+		public void Count()
+		{
+			var totalElements = employees.Count();
+			Console.WriteLine(totalElements);
+
+		}
+
+		public void Max()
+		{
+			decimal maxSalary = employees.Max(e => e.Salary);
+			string employeeWithMaxSalary = employees.Where(e => e.Salary == maxSalary).FirstOrDefault()?.Name;
+			Console.WriteLine(employeeWithMaxSalary);
+
+						  
 		}
 	}
 }
