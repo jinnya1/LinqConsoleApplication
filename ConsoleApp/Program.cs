@@ -15,3 +15,6 @@ Linqoperation.All();
 Linqoperation.Any();
 Linqoperation.Count();
 Linqoperation.Max();
+Linqoperation.ElementAt();
+Linqoperation.ElementAtOrDefault();
+Linqoperation.First();

@@ -147,5 +147,71 @@ namespace ConsoleApp.LinqOperations
 			string employeeWithMaxSalary = employees.Where(e => e.Salary == maxSalary).FirstOrDefault()?.Name;
 			Console.WriteLine(employeeWithMaxSalary);
 		}
+
+		public void ElementAt()
+		{
+			var employee = employees.ElementAt(0);
+			Console.WriteLine("1st Element in employeelist: {0}", employee.Name);
+
+		}
+
+		public void ElementAtOrDefault()
+		{
+			var elementAtOrDefault = employees.ElementAtOrDefault(4);
+			Console.WriteLine(" Element in employeelist: {0}", elementAtOrDefault.Name);
+
+		}
+		public void First()
+		{
+			var employedetails = employees.First(x=>x.Age>30);
+			Console.WriteLine("  Element in employeelist: {0}", employedetails.Name);
+		}
+		public void FirstorDefault()
+		{
+			var employedetails = employees.FirstOrDefault(x => x.Age > 40);
+			Console.WriteLine("  Element in employeelist: {0}", employedetails.Name);
+
+		}
+
+		public void single()
+		{
+			var employedetails = employees.Single(x => x.Age > 40);
+			Console.WriteLine("  Element in employeelist: {0}", employedetails.Name);
+		}
+
+		public void SingleOrDefault()
+		{
+			var employedetails = employees.SingleOrDefault(x => x.Age > 40);
+			Console.WriteLine("  Element in employeelist: {0}", employedetails.Name);
+		}
+
+		public void Last()
+		{
+			var employedetails = employees.Last(x => x.Age > 40);
+			Console.WriteLine("  Element in employeelist: {0}", employedetails.Name);
+		}
+
+		public void LastOrDefault()
+		{
+			var employedetails = employees.LastOrDefault(x => x.Age > 40);
+			Console.WriteLine("  Element in employeelist: {0}", employedetails.Name);
+		}
+
+		public void skip()
+		{
+			var newList = employees.Skip(2);
+
+			foreach (var str in newList)
+				Console.WriteLine(str);
+
+		}
+		public void Take()
+		{
+			var newList = employees.Take(2);
+
+			foreach (var str in newList)
+				Console.WriteLine(str);
+
+		}
 	}
 }
